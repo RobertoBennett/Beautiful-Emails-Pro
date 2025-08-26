@@ -1,1 +1,277 @@
+/* Основные стили админ-панели */
+.beautiful-emails-admin {
+    max-width: 1400px;
+    margin: 20px auto;
+}
 
+.be-admin-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.be-settings-panel {
+    flex: 1;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    padding: 20px;
+}
+
+.be-preview-panel {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Вкладки */
+.nav-tab-wrapper {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Переключатель */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #667eea;
+}
+
+input:checked + .slider:before {
+    transform: translateX(32px);
+}
+
+/* Предпросмотр */
+.preview-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccd0d4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-header h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.preview-container {
+    flex: 1;
+    position: relative;
+    background: #f0f0f1;
+    min-height: 500px;
+}
+
+#email-preview {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    background: white;
+}
+
+.preview-actions {
+    padding: 20px;
+    border-top: 1px solid #ccd0d4;
+    background: #f9f9f9;
+}
+
+.preview-actions h4 {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.test-email-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.test-email-form input {
+    flex: 1;
+}
+
+/* Загрузка логотипа */
+.logo-upload {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo-preview {
+    margin-top: 10px;
+}
+
+.logo-preview img {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Цветовые схемы */
+.color-schemes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.scheme-btn {
+    transition: all 0.2s;
+}
+
+.scheme-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.scheme-btn.button-primary {
+    background: #667eea;
+    border-color: #667eea;
+}
+
+/* Уведомления */
+#test-result {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+#test-result.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#test-result.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Стилизация кода */
+code {
+    background: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 1200px) {
+    .be-admin-container {
+        flex-direction: column;
+    }
+    
+    .be-preview-panel {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* Цветовые поля */
+.color-field {
+    width: 100px !important;
+}
+
+/* Стиль формы */
+.form-table th {
+    width: 200px;
+}
+
+/* Кнопка обновления */
+#refresh-preview {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#refresh-preview .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+}
+
+#refresh-preview.dashicons-update-spin .dashicons {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+/* Скрытие элементов */
+.header-bg-options,
+.header-bg-solid {
+    transition: opacity 0.3s;
+}
+
+/* Улучшение внешнего вида */
+.form-table {
+    margin-top: 0;
+}
+
+.form-table td p.description {
+    font-style: italic;
+    color: #666;
+}
+
+textarea.large-text {
+    width: 100%;
+    max-width: 500px;
+}
+
+input.large-text {
+    width: 100%;
+    max-width: 500px;
+}
